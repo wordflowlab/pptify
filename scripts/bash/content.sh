@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 生成 Slidev 幻灯片
+# 生成详细内容
 
 # 加载通用函数库
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -9,7 +9,7 @@ source "$SCRIPT_DIR/common.sh"
 PROJECT_DIR=$(get_current_project)
 PROJECT_NAME=$(get_project_name)
 
-SLIDES_FILE="$PROJECT_DIR/slides.md"
+CONTENT_FILE="$PROJECT_DIR/content.md"
 OUTLINE_FILE="$PROJECT_DIR/outline.md"
 SPEC_FILE="$PROJECT_DIR/spec.json"
 
@@ -34,78 +34,44 @@ fi
 spec_config=$(cat "$SPEC_FILE")
 outline_content=$(cat "$OUTLINE_FILE")
 
-# 如果已有幻灯片，读取现有内容
-if [ -f "$SLIDES_FILE" ]; then
-    existing_slides=$(cat "$SLIDES_FILE")
+# 如果已有内容，读取现有内容
+if [ -f "$CONTENT_FILE" ]; then
+    existing_content=$(cat "$CONTENT_FILE")
     output_json "{
       \"status\": \"success\",
       \"action\": \"update\",
       \"project_name\": \"$PROJECT_NAME\",
       \"project_path\": \"$PROJECT_DIR\",
-      \"slides_file\": \"$SLIDES_FILE\",
+      \"content_file\": \"$CONTENT_FILE\",
       \"spec\": $spec_config,
       \"outline\": $(echo "$outline_content" | jq -Rs .),
-      \"existing_slides\": $(echo "$existing_slides" | jq -Rs .),
-      \"message\": \"找到现有幻灯片，AI 可引导用户更新\"
+      \"existing_content\": $(echo "$existing_content" | jq -Rs .),
+      \"message\": \"找到现有内容，AI 可引导用户更新\"
     }"
 else
-    # 创建初始 Slidev 模板
-    cat > "$SLIDES_FILE" <<'EOF'
----
-theme: seriph
-background: https://source.unsplash.com/collection/94734566/1920x1080
-class: text-center
-highlighter: shiki
-lineNumbers: false
-info: |
-  ## 演示标题
-  演示描述
-drawings:
-  persist: false
-transition: slide-left
-title: 演示标题
----
+    # 创建初始内容模板
+    cat > "$CONTENT_FILE" <<'EOF'
+# 演示详细内容
 
-# 演示标题
+## 第一部分
 
-演示副标题
-
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    开始 <carbon:arrow-right class="inline"/>
-  </span>
-</div>
-
----
-layout: default
----
-
-# 目录
-
-- 📝 第一部分
-- 🎨 第二部分
-- 🚀 第三部分
-
----
-
-# 第一页
+### 主题1
 
 内容待补充
 
----
+### 主题2
 
-# 总结
+内容待补充
 
-谢谢观看！
+## 第二部分
 
----
-layout: center
-class: text-center
----
+### 主题1
 
-# Q & A
+内容待补充
 
-提问环节
+### 主题2
+
+内容待补充
 EOF
 
     output_json "{
@@ -113,10 +79,10 @@ EOF
       \"action\": \"create\",
       \"project_name\": \"$PROJECT_NAME\",
       \"project_path\": \"$PROJECT_DIR\",
-      \"slides_file\": \"$SLIDES_FILE\",
+      \"content_file\": \"$CONTENT_FILE\",
       \"spec\": $spec_config,
       \"outline\": $(echo "$outline_content" | jq -Rs .),
-      \"message\": \"已创建 Slidev 模板，AI 应根据大纲生成完整幻灯片\"
+      \"message\": \"已创建内容模板，AI 应根据大纲生成详细内容\"
     }"
 fi
 
