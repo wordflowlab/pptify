@@ -23,16 +23,35 @@ if (-not (Test-Path $slidesFile)) {
 
 # 解析参数
 $format = "pdf"
+$exportArgs = ""
+
 foreach ($arg in $args) {
     switch ($arg) {
-        "--pdf" { $format = "pdf" }
-        "--pptx" { $format = "pptx" }
-        "--html" { $format = "html" }
+        "--pdf" { 
+            $format = "pdf"
+            $exportArgs = ""
+        }
+        "--pptx" { 
+            $format = "pptx"
+            $exportArgs = "--format pptx"
+        }
+        "--png" { 
+            $format = "png"
+            $exportArgs = "--format png"
+        }
+        "--html" { 
+            $format = "html"
+            $exportArgs = "--format html"
+        }
     }
 }
 
 # 导出文件名
-$outputFile = Join-Path $projectDir "dist" "$projectName.$format"
+if ($format -eq "html") {
+    $outputFile = Join-Path $projectDir "dist" "index.html"
+} else {
+    $outputFile = Join-Path $projectDir "slides-export.$format"
+}
 
 $result = @{
     status = "success"
@@ -41,12 +60,27 @@ $result = @{
     format = $format
     output_file = $outputFile
     message = "正在导出为 $format 格式..."
-    command = "cd $projectDir && npm run export"
+    command = "cd $projectDir && npx slidev export $exportArgs"
 } | ConvertTo-Json -Compress
 
 Output-Json $result
 
 # 执行导出
 Set-Location $projectDir
-npm run export
+
+# 确保已安装 playwright-chromium（PDF/PPTX/PNG 需要）
+if ($format -ne "html") {
+    $hasPlaywright = npm list playwright-chromium 2>$null
+    if (-not $hasPlaywright) {
+        Write-Host "正在安装 playwright-chromium..."
+        npm install -D playwright-chromium
+    }
+}
+
+# 执行 Slidev 导出
+if ($exportArgs) {
+    npx slidev export $exportArgs
+} else {
+    npx slidev export
+}
 

@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.4] - 2024-11-05
+
+### Added
+
+- ✨ **PPTX 导出支持**: 现在可以直接导出为 PowerPoint 格式！
+  - 使用 `pptify export --pptx` 导出 PPTX 文件
+  - 基于 [Slidev 官方导出功能](https://cn.sli.dev/guide/exporting#pptx)
+  - 自动包含演讲者备注
+  - 幻灯片转为图片格式（保持视觉效果）
+  
+- 🖼️ **PNG 导出支持**: 导出每张幻灯片为 PNG 图片
+  - 使用 `pptify export --png`
+  
+- 📦 **自动依赖管理**: 
+  - 自动检测并安装 `playwright-chromium`
+  - 新项目自动包含导出所需依赖
+  
+- 📝 **改进的导出命令**:
+  - 清晰的提示信息
+  - 显示输出文件路径
+  - 支持多种格式（PDF、PPTX、PNG、HTML）
+
+### Improved
+
+- 🔧 优化导出脚本（bash & PowerShell）
+- 📚 更新项目模板的 package.json
+- 💡 添加用户友好的提示信息
+
 ## [0.1.3] - 2024-11-05
 
 ### Fixed

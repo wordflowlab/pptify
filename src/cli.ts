@@ -192,11 +192,17 @@ program
         scripts: {
           dev: 'slidev',
           build: 'slidev build',
-          export: 'slidev export'
+          export: 'slidev export',
+          'export:pdf': 'slidev export',
+          'export:pptx': 'slidev export --format pptx',
+          'export:png': 'slidev export --format png'
         },
         dependencies: {
           '@slidev/cli': '^0.49.0',
           '@slidev/theme-default': '^latest'
+        },
+        devDependencies: {
+          'playwright-chromium': '^1.40.0'
         }
       };
       await fs.writeJson(path.join(projectPath, 'package.json'), projectPackageJson, { spaces: 2 });
@@ -416,19 +422,29 @@ program
 program
   .command('export')
   .description('导出演示文稿')
-  .option('--pdf', '导出为 PDF')
-  .option('--pptx', '导出为 PowerPoint')
-  .option('--html', '导出为 HTML')
+  .option('--pdf', '导出为 PDF（默认）')
+  .option('--pptx', '导出为 PowerPoint (需要 playwright-chromium)')
+  .option('--png', '导出为 PNG 图片')
+  .option('--html', '导出为 HTML（构建 SPA）')
   .action(async (options) => {
     try {
       const args = [];
-      if (options.pdf) args.push('--pdf');
-      if (options.pptx) args.push('--pptx');
-      if (options.html) args.push('--html');
+      if (options.pptx) {
+        args.push('--pptx');
+        displayInfo('💡 提示：PPTX 导出会将幻灯片转为图片，文本不可选择');
+      } else if (options.png) {
+        args.push('--png');
+      } else if (options.html) {
+        args.push('--html');
+        displayInfo('💡 提示：HTML 导出将构建可托管的 SPA 应用');
+      } else {
+        args.push('--pdf');
+      }
 
       const result = await executeBashScript('export', args);
       if (result.status === 'success') {
         displaySuccess(result.message || '导出成功');
+        displayInfo(`📁 输出文件: ${result.output_file}`);
       } else {
         displayError(result.message || '导出失败');
         process.exit(1);
@@ -462,8 +478,10 @@ program
     console.log('');
     console.log(chalk.cyan('👀 预览导出:'));
     console.log('  pptify preview                    预览演示');
-    console.log('  pptify export --pdf               导出 PDF');
+    console.log('  pptify export                     导出 PDF（默认）');
     console.log('  pptify export --pptx              导出 PowerPoint');
+    console.log('  pptify export --png               导出 PNG 图片');
+    console.log('  pptify export --html              导出 HTML（SPA）');
     console.log('');
     console.log(chalk.cyan('📖 查看文档:'));
     console.log('  README.md - 快速开始指南');

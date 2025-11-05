@@ -92,10 +92,17 @@ pptify /export --pdf # 5. 导出 PDF
 
 ```bash
 pptify /preview          # 启动预览服务器
-pptify /export --pdf     # 导出 PDF
+pptify /export           # 导出 PDF（默认）
 pptify /export --pptx    # 导出 PowerPoint
+pptify /export --png     # 导出 PNG 图片
 pptify /export --html    # 导出 HTML
 ```
+
+**注意**：
+- PPTX 导出会将幻灯片转为图片，文本不可选择，但保持完整视觉效果
+- 首次使用 PPTX/PNG 导出时会自动安装 `playwright-chromium`
+- 演讲者备注会包含在 PPTX 文件中
+- 详见 [Slidev 导出文档](https://cn.sli.dev/guide/exporting)
 
 ---
 
