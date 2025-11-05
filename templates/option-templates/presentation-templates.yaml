@@ -1,0 +1,239 @@
+# 演示类型配置模板
+
+# 快速配置包
+quick_configs:
+  # 技术分享类
+  tech_conference:
+    name: "技术会议演讲"
+    type: "技术分享"
+    duration: "20-40分钟"
+    slides_count: 25-40
+    audience:
+      level: "中高级开发者"
+      size: "50-200人"
+    platforms: ["技术会议", "Meetup"]
+    style: "专业、技术深度"
+    description: "适合技术会议、开发者大会的演讲"
+
+  tech_lightning:
+    name: "Lightning Talk"
+    type: "技术分享"
+    duration: "5-10分钟"
+    slides_count: 10-15
+    audience:
+      level: "全体开发者"
+      size: "30-100人"
+    platforms: ["Meetup", "公司内部"]
+    style: "快速、要点突出"
+    description: "快速技术分享，聚焦单一主题"
+
+  tech_training:
+    name: "技术培训"
+    type: "技术分享"
+    duration: "1-2小时"
+    slides_count: 40-80
+    audience:
+      level: "初中级开发者"
+      size: "10-30人"
+    platforms: ["培训课程", "工作坊"]
+    style: "教学、实践导向"
+    description: "深度技术培训，包含实践环节"
+
+  # 商业路演类
+  business_elevator:
+    name: "电梯演讲"
+    type: "商业路演"
+    duration: "3分钟"
+    slides_count: 5-8
+    audience:
+      level: "投资人、决策者"
+      size: "1-10人"
+    platforms: ["路演活动", "社交场合"]
+    style: "简洁、冲击力强"
+    description: "极简演讲，快速传达核心价值"
+
+  business_pitch:
+    name: "标准路演"
+    type: "商业路演"
+    duration: "10-15分钟"
+    slides_count: 15-20
+    audience:
+      level: "投资人、合作伙伴"
+      size: "5-20人"
+    platforms: ["投资路演", "商业提案"]
+    style: "专业、数据驱动"
+    description: "完整商业计划展示"
+
+  business_detailed:
+    name: "详细方案"
+    type: "商业路演"
+    duration: "30-45分钟"
+    slides_count: 30-50
+    audience:
+      level: "高级管理层"
+      size: "10-50人"
+    platforms: ["董事会", "战略会议"]
+    style: "全面、深度分析"
+    description: "详尽的商业战略展示"
+
+  # 教程培训类
+  tutorial_quick:
+    name: "快速教程"
+    type: "教程培训"
+    duration: "15-30分钟"
+    slides_count: 20-30
+    audience:
+      level: "初学者"
+      size: "20-100人"
+    platforms: ["在线课程", "视频教程"]
+    style: "简单易懂、步骤清晰"
+    description: "入门级教程，快速上手"
+
+  tutorial_deep:
+    name: "深度培训"
+    type: "教程培训"
+    duration: "1-3小时"
+    slides_count: 50-100
+    audience:
+      level: "有基础的学习者"
+      size: "10-30人"
+    platforms: ["培训班", "工作坊"]
+    style: "系统、实践结合"
+    description: "深入讲解，包含实践"
+
+  tutorial_series:
+    name: "系列课程"
+    type: "教程培训"
+    duration: "多次课程"
+    slides_count: 30-50
+    audience:
+      level: "系统学习者"
+      size: "10-50人"
+    platforms: ["学校", "培训机构"]
+    style: "系统、循序渐进"
+    description: "完整的课程体系"
+
+  # 学术报告类
+  academic_conference:
+    name: "会议论文"
+    type: "学术报告"
+    duration: "15-20分钟"
+    slides_count: 15-25
+    audience:
+      level: "学术研究者"
+      size: "20-100人"
+    platforms: ["学术会议"]
+    style: "严谨、数据丰富"
+    description: "学术成果展示"
+
+  academic_defense:
+    name: "论文答辩"
+    type: "学术报告"
+    duration: "30-45分钟"
+    slides_count: 30-40
+    audience:
+      level: "答辩委员会"
+      size: "5-10人"
+    platforms: ["学位答辩"]
+    style: "全面、详实"
+    description: "毕业论文答辩展示"
+
+  academic_poster:
+    name: "海报展示"
+    type: "学术报告"
+    duration: "5-10分钟"
+    slides_count: 1-3
+    audience:
+      level: "会议参与者"
+      size: "不限"
+    platforms: ["学术会议", "展览"]
+    style: "视觉化、简明"
+    description: "海报形式的研究展示"
+
+# 演示风格
+styles:
+  technical:
+    name: "技术风格"
+    themes: ["seriph", "default", "apple-basic"]
+    colors: ["blue", "gray", "black"]
+    fonts: ["monospace", "sans-serif"]
+    
+  business:
+    name: "商业风格"
+    themes: ["bricks", "mokia"]
+    colors: ["corporate", "professional"]
+    fonts: ["sans-serif", "serif"]
+    
+  educational:
+    name: "教育风格"
+    themes: ["academic", "shibainu"]
+    colors: ["warm", "friendly"]
+    fonts: ["readable", "clear"]
+    
+  minimal:
+    name: "极简风格"
+    themes: ["default", "none"]
+    colors: ["minimal", "monochrome"]
+    fonts: ["clean", "simple"]
+
+# 幻灯片结构建议
+structure_templates:
+  tech_talk:
+    sections:
+      - name: "标题页"
+        slides: 1
+      - name: "自我介绍"
+        slides: 1
+      - name: "问题/背景"
+        slides: 2-3
+      - name: "解决方案"
+        slides: 5-10
+      - name: "技术细节"
+        slides: 10-20
+      - name: "演示/案例"
+        slides: 3-5
+      - name: "总结"
+        slides: 2-3
+      - name: "Q&A"
+        slides: 1
+        
+  business_pitch:
+    sections:
+      - name: "封面"
+        slides: 1
+      - name: "问题"
+        slides: 2-3
+      - name: "解决方案"
+        slides: 3-4
+      - name: "市场机会"
+        slides: 2-3
+      - name: "产品演示"
+        slides: 3-5
+      - name: "商业模式"
+        slides: 2-3
+      - name: "竞争分析"
+        slides: 1-2
+      - name: "团队介绍"
+        slides: 1-2
+      - name: "财务预测"
+        slides: 2-3
+      - name: "融资需求"
+        slides: 1-2
+      
+  tutorial:
+    sections:
+      - name: "课程介绍"
+        slides: 2-3
+      - name: "学习目标"
+        slides: 1-2
+      - name: "前置知识"
+        slides: 1-2
+      - name: "核心内容"
+        slides: 20-40
+      - name: "实践练习"
+        slides: 5-10
+      - name: "总结回顾"
+        slides: 2-3
+      - name: "后续学习"
+        slides: 1-2
+

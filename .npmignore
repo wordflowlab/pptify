@@ -1,0 +1,12 @@
+src/
+tsconfig.json
+.git/
+.github/
+*.md
+!README.md
+!LICENSE
+tests/
+*.test.ts
+.env
+.DS_Store
+
