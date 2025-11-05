@@ -59,11 +59,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wordflowlab/pptify"
+    "url": "git+https://github.com/wordflowlab/pptify.git"
   },
   "homepage": "https://github.com/wordflowlab/pptify#readme",
   "bugs": {
     "url": "https://github.com/wordflowlab/pptify/issues"
   }
 }
-
