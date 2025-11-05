@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.5] - 2024-11-05
+
+### Documentation
+
+- 📝 更新 README：
+  - 添加 npm 版本和许可证徽章
+  - 标注当前版本 v0.1.4
+  - 更新特性列表（多格式导出功能）
+  - 更新快速开始示例（PPTX 导出）
+  - 更新开发路线图（完成 Phase 4）
+
 ## [0.1.4] - 2024-11-05
 
 ### Added
