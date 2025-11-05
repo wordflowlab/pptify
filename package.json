@@ -1,6 +1,6 @@
 {
   "name": "ai-pptify",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "description": "AI 驱动的 Slidev 演示创作工具 - 支持多种演示类型、AI 辅助创作",
   "keywords": [
