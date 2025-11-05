@@ -2,6 +2,10 @@
 
 > 基于 Slidev 的智能演示文稿创作系统
 
+[![npm version](https://img.shields.io/npm/v/ai-pptify.svg)](https://www.npmjs.com/package/ai-pptify)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+**当前版本**: v0.1.4  
 **核心价值**: 帮助创作者快速创建专业演示文稿，支持技术分享、商业路演、教程培训、学术报告等多种类型。
 
 ## ⚡ 特性
@@ -11,7 +15,8 @@
 ✅ **AI辅助创作** - 从规格定义到幻灯片生成的全流程AI辅助  
 ✅ **Slidev驱动** - 基于强大的 Slidev 演示引擎  
 ✅ **模板丰富** - 内置多种专业模板和快速配置包  
-✅ **跨平台脚本** - 支持 Bash (macOS/Linux) 和 PowerShell (Windows)
+✅ **跨平台脚本** - 支持 Bash (macOS/Linux) 和 PowerShell (Windows)  
+✅ **多格式导出** - PDF / PowerPoint (PPTX) / PNG / HTML 一键导出
 
 ---
 
@@ -50,7 +55,7 @@ pptify /spec        # 1. 定义演示规格（类型、时长、受众）
 pptify /outline     # 2. 创建演示大纲
 pptify /slides      # 3. 生成 Slidev 幻灯片
 pptify /preview     # 4. 预览演示
-pptify /export --pdf # 5. 导出 PDF
+pptify export --pptx # 5. 导出 PowerPoint（或其他格式）
 ```
 
 ---
@@ -223,8 +228,10 @@ pptify /outline  # 选择：快速模式
 # 4. 生成商业风格幻灯片
 pptify /slides  # 选择：商业风格
 
-# 5. 导出 PDF
-npm run export
+# 5. 导出 PowerPoint
+pptify export --pptx
+# 或导出 PDF
+pptify export --pdf
 ```
 
 ---
@@ -315,9 +322,10 @@ pptify /review
 - ✅ Phase 1: 基础架构和核心命令
 - ✅ Phase 2: 13种AI助手支持
 - ✅ Phase 3: 多种演示类型模板
-- 📋 Phase 4: Web UI 版本
-- 📋 Phase 5: 协作和分享功能
-- 📋 Phase 6: 更多主题和插件
+- ✅ Phase 4: 多格式导出（PDF/PPTX/PNG/HTML）
+- 📋 Phase 5: Web UI 版本
+- 📋 Phase 6: 协作和分享功能
+- 📋 Phase 7: 更多主题和插件
 
 ---
 
