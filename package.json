@@ -1,6 +1,6 @@
 {
   "name": "ai-pptify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "AI 驱动的 Slidev 演示创作工具 - 支持多种演示类型、AI 辅助创作",
   "keywords": [
@@ -20,6 +20,14 @@
   "bin": {
     "pptify": "dist/cli.js"
   },
+  "files": [
+    "dist",
+    "scripts",
+    "templates",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "build": "tsc",
     "postbuild": "chmod +x dist/cli.js",

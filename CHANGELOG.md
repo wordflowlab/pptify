@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.1] - 2024-11-05
+
+### Fixed
+
+- 🐛 **Critical Fix**: Added `files` field to package.json to include `templates/` and `scripts/` directories in npm package
+- Fixed "ENOENT: no such file or directory" error when initializing projects
+- Ensured all necessary files are included in the published npm package
+
 ## [0.1.0] - 2024-11-05
 
 ### Added
