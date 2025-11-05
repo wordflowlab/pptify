@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.3] - 2024-11-05
+
+### Fixed
+
+- 🐛 **Slidev 语法错误修复**: 在 slides.md 命令模板中添加了详细的错误避免指南
+- 📝 添加常见 Slidev/Vue 编译错误的解决方案（插槽语法、HTML/Markdown 混用等）
+- ✅ 提供正确的 Slidev 语法示例，避免 "Extraneous children found" 错误
+
+### Improved
+
+- 📚 改进了 `/slides` 命令的 AI 提示模板
+- 🎯 添加了清晰的 "做与不做" 示例
+- 💡 包含正确的插槽用法（`::slot-name::` 语法）
+
 ## [0.1.2] - 2024-11-05
 
 ### Added

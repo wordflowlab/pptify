@@ -17,6 +17,90 @@ scripts:
 
 ---
 
+## ⚠️ 重要：常见错误和注意事项
+
+### ❌ 错误 1: 插槽语法混用
+
+**错误示例**（会导致 Vue 编译错误）：
+```markdown
+---
+layout: default
+---
+
+<h1>标题</h1>
+<template v-slot:default>
+  <p>内容</p>
+</template>
+```
+
+**正确做法**：
+```markdown
+---
+layout: default
+---
+
+# 标题
+
+内容正文
+```
+
+**规则**：在 Slidev 中，**不要使用 `<template v-slot:default>`**。使用 Markdown 语法或 `::slot-name::` 语法。
+
+### ❌ 错误 2: HTML 标签与 Markdown 混用
+
+**错误示例**：
+```markdown
+<h1>标题</h1>
+# 这是 Markdown 标题  ← 不要混用
+```
+
+**正确做法**：
+```markdown
+# 标题
+## 副标题
+```
+
+或全部使用 HTML：
+```markdown
+<h1>标题</h1>
+<h2>副标题</h2>
+```
+
+### ✅ 正确的插槽用法
+
+使用 Slidev 的 `::slot-name::` 语法：
+
+```markdown
+---
+layout: two-cols
+---
+
+# 左侧内容
+
+这里是左侧的内容
+
+::right::
+
+# 右侧内容
+
+这里是右侧的内容
+```
+
+### ✅ 正确的 HTML 用法
+
+如果需要使用 HTML，确保结构完整：
+
+```markdown
+---
+layout: center
+---
+
+<div class="text-center">
+  <h1>标题</h1>
+  <p>描述文字</p>
+</div>
+```
+
 ## Slidev 基础知识
 
 ### 幻灯片分隔符
