@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.2] - 2024-11-05
+
+### Added
+
+- ✨ **完整命令支持**: 新增 5 个命令模板（content, theme, polish, convert, save）
+- 💻 **PowerShell 完整支持**: 新增所有 11 个 PowerShell 脚本（.ps1）
+- 🔧 **Bash 脚本补全**: 新增缺失的 5 个 bash 脚本（content.sh, theme.sh, polish.sh, convert.sh, save.sh）
+- 📝 **统一元数据**: 为所有命令模板添加 frontmatter 声明（描述和脚本路径）
+
+### Improved
+
+- 🎯 所有命令现在都有对应的 AI 提示模板
+- 🪟 Windows 用户现在可以完整使用 PowerShell 脚本
+- 📚 命令模板结构更加规范统一
+
+### Fixed
+
+- 修复命令模板不全的问题
+- 修复 PowerShell 脚本缺失的问题
+- 设置所有脚本的正确执行权限
+
 ## [0.1.1] - 2024-11-05
 
 ### Fixed
